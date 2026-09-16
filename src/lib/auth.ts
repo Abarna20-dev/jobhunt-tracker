@@ -20,7 +20,7 @@ export async function login(email: string, password: string) {
     return {
       success: false,
       error:
-        "Login is not configured. Add APP_LOGIN_EMAIL and APP_LOGIN_PASSWORD to .env.local.",
+        "Login is not configured. Add APP_LOGIN_EMAIL and APP_LOGIN_PASSWORD in Vercel Project Settings > Environment Variables (and redeploy).",
     };
   }
 

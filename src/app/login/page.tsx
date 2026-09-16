@@ -69,6 +69,7 @@ export default function LoginPage() {
       return;
     }
 
+    localStorage.setItem("jobhunt_authenticated", "true");
     showToast("Signed in successfully.", "success");
     router.replace("/dashboard");
   }

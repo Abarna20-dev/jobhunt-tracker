@@ -2,16 +2,16 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { logout } from "../../lib/auth";
 
 export default function LogoutPage() {
   const router = useRouter();
 
   useEffect(() => {
-    localStorage.removeItem(
-      "jobhunt_authenticated"
-    );
-
-    router.replace("/login");
+    localStorage.removeItem("jobhunt_authenticated");
+    logout().then(() => {
+      router.replace("/login");
+    });
   }, [router]);
 
   return (
