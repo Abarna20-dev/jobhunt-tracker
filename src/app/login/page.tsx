@@ -185,6 +185,37 @@ export default function LoginPage() {
               )}
             </button>
           </form>
+
+          <div className="relative my-6 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-200" />
+            </div>
+            <span className="relative bg-white px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Instant Access
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={async () => {
+              const result = await login("abarnatest@gmail.com", "123456");
+              if (result.success) {
+                localStorage.setItem("jobhunt_authenticated", "true");
+                showToast("Signed in successfully.", "success");
+                router.replace("/dashboard");
+              }
+            }}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-700 transition hover:bg-slate-100 hover:text-slate-950"
+          >
+            <span>⚡ One-Click Demo Sign In</span>
+          </button>
+
+          <div className="mt-4 rounded-xl border border-blue-100 bg-blue-50/70 p-3 text-center text-xs text-slate-600">
+            <p className="font-bold text-blue-900">Demo Login Details:</p>
+            <p className="mt-0.5 font-mono text-[11px] text-slate-700">
+              Email: <span className="font-bold">abarnatest@gmail.com</span> | Password: <span className="font-bold">123456</span>
+            </p>
+          </div>
         </div>
       </div>
     </main>
